@@ -1,0 +1,21 @@
+{% assign homepage_photos = site.photography | sort: "date" | reverse | where: "show", true %}
+{% if homepage_photos.size > 0 %}
+<section class="homepage-photo-preview my-4 p-4 bg-white shadow-sm rounded-xl">
+    <div class="d-flex align-items-center mb-3">
+        <div>
+            <div class="homepage-section-kicker">Beyond research</div>
+            <h2 class="h4 mb-0">Photography</h2>
+        </div>
+        <a class="ml-auto small" href="{{ '/photography' | relative_url }}">View gallery <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="row">
+        {% for item in homepage_photos limit: 3 %}
+        <div class="col-md-4 mb-3 mb-md-0">
+            <div class="homepage-photo-card rounded-xl overflow-hidden">
+                {{ item.content }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}

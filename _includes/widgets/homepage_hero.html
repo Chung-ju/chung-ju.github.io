@@ -1,0 +1,51 @@
+<section class="homepage-hero shadow-sm rounded-xl mb-4">
+    <div class="row align-items-center">
+        <div class="col-lg-8">
+            <div class="homepage-hero-kicker mb-3">Research homepage</div>
+            <h1 class="homepage-hero-title mb-3">Building Privacy-Aware and Agentic LLM Systems</h1>
+            <p class="homepage-hero-subtitle mb-4">
+                {{ site.data.profile.primary_name }} is a Ph.D. student at Peking University, supervised by Leye Wang, and a research intern at Weixin Group, Tencent.
+            </p>
+            <div class="mb-4">
+                <span class="homepage-keyword">Agentic Training</span>
+                <span class="homepage-keyword">Privacy-Aware LLM</span>
+                <span class="homepage-keyword">Federated Learning</span>
+            </div>
+            <div class="homepage-social-links">
+                <a class="homepage-social-link" href="mailto:{{ site.data.profile.email | encode_email }}">
+                    <i class="fas fa-at"></i> Email
+                </a>
+                {% if site.data.profile.gscholar %}
+                {%- if site.data.profile.gscholar contains 'scholar.google' -%}
+                {%- assign gscholar_url = site.data.profile.gscholar -%}
+                {%- else -%}
+                {%- assign gscholar_url = 'https://scholar.google.com/citations?user=' | append: site.data.profile.gscholar -%}
+                {%- endif -%}
+                <a class="homepage-social-link" target="_blank" href="{{ gscholar_url }}">
+                    <i class="fab fa-google-scholar"></i> Scholar
+                </a>
+                {% endif %}
+                {% if site.data.profile.github %}
+                <a class="homepage-social-link" target="_blank" href="https://github.com/{{ site.data.profile.github }}">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                {% endif %}
+                {% if site.data.profile.linkedin %}
+                <a class="homepage-social-link" target="_blank" href="https://www.linkedin.com/in/{{ site.data.profile.linkedin }}">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                {% endif %}
+                {% if site.data.profile.orcid %}
+                <a class="homepage-social-link" target="_blank" href="https://orcid.org/{{ site.data.profile.orcid }}">
+                    <i class="fab fa-orcid"></i> ORCID
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        {% if site.data.profile.portrait_url %}
+        <div class="col-lg-4 mt-4 mt-lg-0 text-center">
+            <img src="{{ site.data.profile.portrait_url | relative_url }}" class="homepage-portrait img-fluid" alt="Portrait of {{ site.data.profile.primary_name }}">
+        </div>
+        {% endif %}
+    </div>
+</section>

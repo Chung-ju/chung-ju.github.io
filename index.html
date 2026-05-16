@@ -2,16 +2,15 @@
 layout: default
 title : Homepage
 navbar_title: Home
+container_class: container-xl
 ---
-{% include widgets/profile_card.html %}
-
-{% include widgets/debug_repo_name.html %}
-
-{% include widgets/debug_url.html %}
+{% include widgets/homepage_hero.html %}
 
 {% if site.data.display.homepage.show_experience %}
     {% include widgets/experience_card.html %}
 {% endif %}
+
+{% include widgets/homepage_photography_preview.html %}
 
 {% if site.data.display.homepage.show_news %}
     {% assign count_news = site.news | size %}
@@ -22,8 +21,8 @@ navbar_title: Home
 
 {% if site.data.display.homepage.show_selected_publications %}
     {% assign pubs = site.publications | sort: "date" | reverse | where: "selected", true %}
-    {% 
-        include widgets/publication_card.html 
+    {%
+        include widgets/publication_card.html
         publications=pubs
         title='<i class="fas fa-star"></i> Selected Publications'
     %}
