@@ -1,6 +1,7 @@
 ---
 show: true
 width: 4
+group: Sayram Lake, February 2026
 date: 2026-05-01 00:01:00 +0800
 ---
 <div>
