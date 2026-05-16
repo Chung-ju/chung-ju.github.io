@@ -1,0 +1,29 @@
+---
+layout: default
+title : Photography
+navbar_title: Photography
+container_class: container-xl
+---
+
+{% assign photos = site.photography | sort: "date" | reverse | where: "show", true %}
+
+<div class="row grid mb-4">
+    <div class="grid-sizer col-1"></div>
+    {% for item in photos %}
+    {% if item.width >= 6 -%}
+        {%- assign width_sm = 12 -%}
+        {%- assign width_xs = 12 -%}
+    {%- elsif item.width >= 2 -%}
+        {%- assign width_sm = 6 -%}
+        {%- assign width_xs = 6 -%}
+    {%- else -%}
+        {%- assign width_sm = item.width | times: 2 | at_most: 12 -%}
+        {%- assign width_xs = item.width | times: 2 | at_most: 12 -%}
+    {%- endif -%}
+    <div class="p-2 grid-item col-md-{{ item.width | at_most: 12 }} col-sm-{{ width_sm }} col-{{ width_xs }}">
+        <div class="card border-0 shadow-sm bg-white">
+            {{ item.content }}
+        </div>
+    </div>
+    {% endfor %}
+</div>
