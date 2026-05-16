@@ -8,7 +8,7 @@ container_class: container-xl
 {% assign groups = site.photography | sort: "date" | reverse | where: "show", true | group_by_exp: "item", "item.group | default: 'Other Photos'" %}
 
 {% for group in groups %}
-<h1>{{ group.name }}</h1>
+<h4 class="mt-4 mb-3 font-weight-normal">{{ group.name }}</h4>
 <div class="row grid mb-4">
     <div class="grid-sizer col-1"></div>
     {% for item in group.items %}
